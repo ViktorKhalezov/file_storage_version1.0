@@ -16,8 +16,8 @@ import java.util.List;
 
 
 public class AppStarter extends Application {
-   // private static Parent parent;
-  // private WelcomeWindowController welcomeWindowController;
+  // private static Parent parent;
+ // private WelcomeWindowController welcomeWindowController;
  //  private static final ClientNet clientNet = ClientNet.getClientNet();
 
 
