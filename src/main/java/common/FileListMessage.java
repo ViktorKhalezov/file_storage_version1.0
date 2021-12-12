@@ -25,5 +25,6 @@ public class FileListMessage extends AbstractMessage {
     public String getFolderName() {
         return folderName;
     }
+
 }
 

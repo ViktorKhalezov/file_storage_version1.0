@@ -1,6 +1,5 @@
 package client;
 
-
 import common.AbstractMessage;
 
 public interface Callback {

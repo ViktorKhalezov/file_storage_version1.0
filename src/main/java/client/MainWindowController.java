@@ -1,6 +1,5 @@
 package client;
 
-
 import common.CheckStatusMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
