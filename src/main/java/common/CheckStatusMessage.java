@@ -1,6 +1,5 @@
 package common;
 
-
 public class CheckStatusMessage extends AbstractMessage {
     private String nameOfObject;
 
