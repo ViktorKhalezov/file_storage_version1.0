@@ -80,7 +80,7 @@ public class UploadWindowController implements Initializable {
             fillListView(pathToItem);
         } else {
             try {
-                root = FXMLLoader.load(getClass().getResource("/isNotDirectoryWindow.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/client/isNotDirectoryWindow.fxml"));
                 stage = AppStarter.getPrimaryStage();
                 scene = new Scene(root);
                 stage.setScene(scene);
@@ -92,7 +92,7 @@ public class UploadWindowController implements Initializable {
 
     public void returnButton(ActionEvent actionEvent) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/mainWindow.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/client/mainWindow.fxml"));
             stage = AppStarter.getPrimaryStage();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -109,7 +109,7 @@ public class UploadWindowController implements Initializable {
             clientNet.sendFile(pathToItem);
         } else {
             try {
-                root = FXMLLoader.load(getClass().getResource("/isNotFileWindow.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/client/isNotFileWindow.fxml"));
                 stage = AppStarter.getPrimaryStage();
                 scene = new Scene(root);
                 stage.setScene(scene);

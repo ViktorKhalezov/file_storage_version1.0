@@ -33,7 +33,9 @@ public class ClientNet {
     private static String fileForRename;
     private static String incorrectNameCommand;
     private static Boolean operationConfirmed;
- //   private static Path currentFolder;
+    private static String authCommand;
+    public static String regCommand;
+
 
     private ClientNet(Callback callback) {
       this.callback = callback;
@@ -137,20 +139,26 @@ public class ClientNet {
         this.operationConfirmed = operationConfirmed;
     }
 
- /*   public Path getCurrentFolder() {
-        return currentFolder;
-    } */
+    public String getRegCommand() {
+        return regCommand;
+    }
 
-  /*  public void setCurrentFolder(Path path) {
-        this.currentFolder = currentFolder;
-    } */
+    public void setRegCommand(String regCommand) {
+        regCommand = regCommand;
+    }
+
+    public String getAuthCommand() {
+        return authCommand;
+    }
+
+    public void setAuthCommand(String authCommand) {
+        authCommand = authCommand;
+    }
 
     private synchronized static void handleMessage(AbstractMessage message) {
         if(message instanceof AuthResponse) {
             AuthResponse authResponse = (AuthResponse) message;
-            if(authResponse.isAuth() == true) {
-                authorized = true;
-            }
+            authCommand = authResponse.getResponse();
         }
 
         if(message instanceof FileListMessage) {
@@ -172,7 +180,7 @@ public class ClientNet {
 
         if(message instanceof OperationConfirmMessage) {
             OperationConfirmMessage operationConfirmMessage = (OperationConfirmMessage) message;
-           operationConfirmed = operationConfirmMessage.isOperationConfirmed();
+            operationConfirmed = operationConfirmMessage.isOperationConfirmed();
         }
 
     }

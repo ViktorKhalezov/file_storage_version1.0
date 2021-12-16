@@ -15,8 +15,12 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class Server {
+    private AuthService authService;
+    private Server server;
 
-    public static void main(String[] args) {
+    public Server() {
+        server = this;
+        this.authService = new AuthService();
         EventLoopGroup auth = new NioEventLoopGroup();
         EventLoopGroup worker = new NioEventLoopGroup();
 
@@ -30,7 +34,7 @@ public class Server {
                             channel.pipeline().addLast(
                                    new ObjectDecoder(ClassResolvers.cacheDisabled(null)),
                                     new ObjectEncoder(),
-                                    new ClientHandler()
+                                    new ClientHandler(server)
                             );
                         }
                     }).bind(8189).sync();
@@ -42,6 +46,10 @@ public class Server {
             auth.shutdownGracefully();
             worker.shutdownGracefully();
         }
+    }
+
+    public AuthService getAuthService() {
+        return authService;
     }
 
 }

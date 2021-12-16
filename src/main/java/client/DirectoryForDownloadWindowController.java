@@ -81,7 +81,7 @@ public class DirectoryForDownloadWindowController implements Initializable {
             fillListView(pathToItem);
         } else {
             try {
-                root = FXMLLoader.load(getClass().getResource("/isNotDirectoryWindow.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/client/isNotDirectoryWindow.fxml"));
                 stage = AppStarter.getPrimaryStage();
                 scene = new Scene(root);
                 stage.setScene(scene);
@@ -93,7 +93,7 @@ public class DirectoryForDownloadWindowController implements Initializable {
 
     public void returnButton(ActionEvent actionEvent) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/mainWindow.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/client/mainWindow.fxml"));
             stage = AppStarter.getPrimaryStage();
             scene = new Scene(root);
             stage.setScene(scene);

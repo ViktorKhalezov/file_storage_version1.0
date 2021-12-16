@@ -47,7 +47,7 @@ public class NewObjectNameWindowController implements Initializable {
                 || name.contains("\"") || name.contains("<") || name.contains(">") || name.contains("|")) {
             clientNet.setIncorrectNameCommand("incorrectSigns");
             try {
-                root = FXMLLoader.load(getClass().getResource("/incorrectNameWindow.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/client/incorrectNameWindow.fxml"));
                 stage = AppStarter.getPrimaryStage();
                 scene = new Scene(root);
                 stage.setScene(scene);
@@ -68,6 +68,7 @@ public class NewObjectNameWindowController implements Initializable {
                         break;
                     }
                 }
+                Thread.currentThread().interrupt();
             }).start();
             try {
                 Thread.currentThread().sleep(200);
@@ -77,7 +78,7 @@ public class NewObjectNameWindowController implements Initializable {
             if(clientNet.isOperationConfirmed() == true) {
                 try {
                     clientNet.setFileForRename(null);
-                    root = FXMLLoader.load(getClass().getResource("/mainWindow.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("/client/mainWindow.fxml"));
                     stage = AppStarter.getPrimaryStage();
                     scene = new Scene(root);
                     stage.setScene(scene);
@@ -88,7 +89,7 @@ public class NewObjectNameWindowController implements Initializable {
             } else {
                 clientNet.setIncorrectNameCommand("objectExists");
                 try {
-                    root = FXMLLoader.load(getClass().getResource("/incorrectNameWindow.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("/client/incorrectNameWindow.fxml"));
                     stage = AppStarter.getPrimaryStage();
                     scene = new Scene(root);
                     stage.setScene(scene);

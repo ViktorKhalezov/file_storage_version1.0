@@ -15,7 +15,13 @@ import java.util.stream.Collectors;
 
 @Slf4j
 public class ClientHandler extends SimpleChannelInboundHandler<AbstractMessage> {
-    Path path;
+    private Path path;
+    private String login;
+    private Server server;
+
+    public ClientHandler(Server server) {
+        this.server = server;
+    }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
@@ -28,7 +34,7 @@ public class ClientHandler extends SimpleChannelInboundHandler<AbstractMessage> 
         if(msg instanceof AuthMessage) {
             AuthMessage authMessage = (AuthMessage) msg;
             if(authMessage.getLogin().equals("Viktor") && authMessage.getPassword().equals("123")) {
-                AuthResponse authResponse = new AuthResponse(true);
+                AuthResponse authResponse = new AuthResponse("auth");
                 channelHandlerContext.writeAndFlush(authResponse);
                 path = Paths.get("server_files");
                 FileListMessage fileListMessage = getFileListMessage(path);

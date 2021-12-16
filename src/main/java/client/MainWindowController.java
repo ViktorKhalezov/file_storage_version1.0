@@ -53,7 +53,7 @@ public class MainWindowController implements Initializable {
 
     public void uploadButton(ActionEvent actionEvent) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/uploadFileWindow.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/client/uploadFileWindow.fxml"));
             stage = AppStarter.getPrimaryStage();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -73,6 +73,7 @@ public class MainWindowController implements Initializable {
                         break;
                     }
                 }
+                Thread.currentThread().interrupt();
             }).start();
             try {
                 Thread.currentThread().sleep(200);
@@ -83,7 +84,7 @@ public class MainWindowController implements Initializable {
             if (status.equals("isFile")) {
                 clientNet.setFileForDownload(item);
                 try {
-                    root = FXMLLoader.load(getClass().getResource("/directoryForDownloadWindow.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("/client/directoryForDownloadWindow.fxml"));
                     stage = AppStarter.getPrimaryStage();
                     scene = new Scene(root);
                     stage.setScene(scene);
@@ -92,7 +93,7 @@ public class MainWindowController implements Initializable {
                 }
             } else {
                 try {
-                    root = FXMLLoader.load(getClass().getResource("/isNotFileWindow.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("/client/isNotFileWindow.fxml"));
                     stage = AppStarter.getPrimaryStage();
                     scene = new Scene(root);
                     stage.setScene(scene);
@@ -123,6 +124,7 @@ public class MainWindowController implements Initializable {
                 break;
             }
         }
+            Thread.currentThread().interrupt();
        }).start();
         try {
             Thread.currentThread().sleep(200);
@@ -141,7 +143,7 @@ public class MainWindowController implements Initializable {
                 fillListView();
             } else {
                 try {
-                    root = FXMLLoader.load(getClass().getResource("/isNotDirectoryWindow.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("/client/isNotDirectoryWindow.fxml"));
                     stage = AppStarter.getPrimaryStage();
                     scene = new Scene(root);
                     stage.setScene(scene);
@@ -158,7 +160,7 @@ public class MainWindowController implements Initializable {
         if(fileForRename != null) {
             clientNet.setFileForRename(fileForRename);
             try {
-                root = FXMLLoader.load(getClass().getResource("/newObjectNameWindow.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/client/newObjectNameWindow.fxml"));
                 stage = AppStarter.getPrimaryStage();
                 scene = new Scene(root);
                 stage.setScene(scene);
@@ -171,7 +173,7 @@ public class MainWindowController implements Initializable {
     public void createDirectoryButton(ActionEvent actionEvent) {
         clientNet.setCommand("createDirectory");
         try {
-            root = FXMLLoader.load(getClass().getResource("/newObjectNameWindow.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/client/newObjectNameWindow.fxml"));
             stage = AppStarter.getPrimaryStage();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -189,6 +191,7 @@ public class MainWindowController implements Initializable {
                     break;
                 }
             }
+            Thread.currentThread().interrupt();
         }).start();
         try {
             Thread.currentThread().sleep(200);
@@ -200,7 +203,7 @@ public class MainWindowController implements Initializable {
             fillListView();
         } else {
             try {
-                root = FXMLLoader.load(getClass().getResource("/deleteFileErrorWindow.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/client/deleteFileErrorWindow.fxml"));
                 stage = AppStarter.getPrimaryStage();
                 scene = new Scene(root);
                 stage.setScene(scene);

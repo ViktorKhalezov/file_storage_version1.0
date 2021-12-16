@@ -19,13 +19,13 @@ public class IsNotDirectoryWindowController implements Initializable {
     public void оkButton(ActionEvent actionEvent) {
         try {
             if(AppStarter.getPreviousWindow().equals("mainWindow")) {
-                root = FXMLLoader.load(getClass().getResource("/mainWindow.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/client/mainWindow.fxml"));
             }
             if(AppStarter.getPreviousWindow().equals("uploadWindow")) {
-                root = FXMLLoader.load(getClass().getResource("/uploadFileWindow.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/client/uploadFileWindow.fxml"));
             }
             if(AppStarter.getPreviousWindow().equals("downloadWindow")) {
-                root = FXMLLoader.load(getClass().getResource("/directoryForDownloadWindow.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/client/directoryForDownloadWindow.fxml"));
             }
             stage = AppStarter.getPrimaryStage();
             scene = new Scene(root);

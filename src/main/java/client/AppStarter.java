@@ -18,7 +18,7 @@ public class AppStarter extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent parent = FXMLLoader.load(getClass().getResource("/welcomeWindow.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/client/welcomeWindow.fxml"));
         this.primaryStage = primaryStage;
         primaryStage.setScene(new Scene(parent));
         primaryStage.show();

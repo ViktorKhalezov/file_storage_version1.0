@@ -1,6 +1,5 @@
 package common;
 
-import java.util.Objects;
 
 public class AuthMessage extends AbstractMessage {
     private String login;
